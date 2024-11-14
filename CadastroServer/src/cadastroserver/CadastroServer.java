@@ -15,14 +15,14 @@ public class CadastroServer {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("lojaPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CadastroServerPU");
         ProdutosJpaController ctrl = new ProdutosJpaController(emf);
         UsuariosJpaController ctrlUsu = new UsuariosJpaController(emf);
 
         try (ServerSocket serverSocket = new ServerSocket(4321)) {
             System.out.println("Servidor iniciado.");
             while (true) {
-                System.out.println("Aguardando conexões de clientes...");
+                System.out.println("Aguardando conexoes de clientes...");
                 Socket clientSocket = serverSocket.accept(); 
                 System.out.println("Cliente conectado: " + clientSocket.getInetAddress());
 

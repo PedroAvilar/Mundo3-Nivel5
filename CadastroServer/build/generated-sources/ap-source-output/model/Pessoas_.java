@@ -8,7 +8,7 @@ import model.Movimentos;
 import model.PessoasFisicas;
 import model.PessoasJuridicas;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-11-14T11:59:55", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-11-15T00:13:05", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Pessoas.class)
 public class Pessoas_ { 
 

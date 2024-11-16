@@ -2,6 +2,8 @@ package cadastroserver;
 
 import controller.ProdutosJpaController;
 import controller.UsuariosJpaController;
+import controller.MovimentosJpaController;
+import controller.PessoasJpaController;
 import java.net.ServerSocket;
 import java.net.Socket;
 import javax.persistence.EntityManagerFactory;
@@ -16,8 +18,11 @@ public class CadastroServer {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CadastroServerPU");
-        ProdutosJpaController ctrl = new ProdutosJpaController(emf);
+        ProdutosJpaController ctrlProd = new ProdutosJpaController(emf);
         UsuariosJpaController ctrlUsu = new UsuariosJpaController(emf);
+        MovimentosJpaController ctrlMov = new MovimentosJpaController(emf);
+        PessoasJpaController ctrlPessoa = new PessoasJpaController(emf);
+
 
         try (ServerSocket serverSocket = new ServerSocket(4321)) {
             System.out.println("Servidor iniciado.");
@@ -26,7 +31,8 @@ public class CadastroServer {
                 Socket clientSocket = serverSocket.accept(); 
                 System.out.println("Cliente conectado: " + clientSocket.getInetAddress());
 
-                CadastroThread clienteThread = new CadastroThread(ctrl, ctrlUsu, clientSocket);
+                CadastroThreadSegunda clienteThread = new CadastroThreadSegunda(
+                        ctrlProd, ctrlUsu, ctrlMov, ctrlPessoa, clientSocket);
                 clienteThread.start();
             }
         } catch (Exception e) {

@@ -37,7 +37,6 @@ public class CadastroClientV2 {
 
             String comando;
             do {
-                // Apresentar menu
                 System.out.println("Menu:");
                 System.out.println("L - Listar produtos");
                 System.out.println("E - Entrada de produto");
